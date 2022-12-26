@@ -3,7 +3,7 @@ package id.anggra.blogpostbackend.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "blogposts")
+@Document(collection = "blogposts")
 public class Blogpost
 {
     @Id
