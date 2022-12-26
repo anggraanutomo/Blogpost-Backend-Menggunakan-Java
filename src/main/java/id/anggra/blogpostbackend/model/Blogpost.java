@@ -3,12 +3,17 @@ package id.anggra.blogpostbackend.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotEmpty;
+
 @Document(collection = "blogposts")
 public class Blogpost
 {
     @Id
     private String id;
+
+    @NotEmpty(message = "Title is required")
     private String title;
+    @NotEmpty(message = "Content is required")
     private String content;
 
     public Blogpost()
