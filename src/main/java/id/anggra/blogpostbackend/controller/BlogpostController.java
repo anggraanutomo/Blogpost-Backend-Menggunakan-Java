@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/blogposts")
 public class BlogpostController
 {
     @Autowired
     BlogpostRepository blogpostRepository;
 
-    @GetMapping("/blogposts")
+    @GetMapping()
     public ResponseEntity<List<Blogpost>> getAllBlogposts()
     {
         try {
@@ -35,7 +35,7 @@ public class BlogpostController
         }
     }
 
-    @GetMapping("/blogposts/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Blogpost> getBlogpostById(@PathVariable("id") String id)
     {
         Optional<Blogpost> blogpost = blogpostRepository.findById(id);
@@ -50,7 +50,7 @@ public class BlogpostController
         }
     }
 
-    @PostMapping("/blogposts")
+    @PostMapping()
     public ResponseEntity<Blogpost> createBlogpost(@Valid @RequestBody Blogpost blogpost)
     {
         try {
@@ -62,7 +62,7 @@ public class BlogpostController
         }
     }
 
-    @PutMapping("/blogposts/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Blogpost> updateBlogpost(@PathVariable("id") String id, @Valid @RequestBody Blogpost blogpost)
     {
         Optional<Blogpost> blogpostData = blogpostRepository.findById(id);
@@ -77,7 +77,7 @@ public class BlogpostController
         }
     }
 
-    @DeleteMapping("/blogposts/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBlogpost(@PathVariable("id") String id)
     {
         try {
